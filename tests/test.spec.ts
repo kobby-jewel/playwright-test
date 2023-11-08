@@ -17,14 +17,18 @@ test("Check all Hubtel for Hospitals links excluding links with / or wrong forma
 
   // Loop through each link and check if it's working
   for (const link of links) {
-    if (link!.startsWith("http://") || link!.startsWith("https://")) {
-      var context1 = await browser.newContext();
-      var page1 = await context1.newPage();
-      var response = await page1.goto(link!, { timeout: 3000 * 10 });
-      await context1.close();
-      var statusCode = await response!.status();
+    if (link) {
+      if (link!.startsWith("http://") || link!.startsWith("https://")) {
+        var context1 = await browser.newContext();
+        var page1 = await context1.newPage();
+        var response = await page1.goto(link!, { timeout: 3000 * 10 });
+        await context1.close();
+        var statusCode = await response!.status();
 
-      expect(statusCode).toBe(200);
+        expect(statusCode).toBe(200);
+      } else {
+        console.log(`${link} failed to load`);
+      }
     }
   }
 });
