@@ -15,5 +15,10 @@ steps:
   displayName: 'Install Playwright browsers'
 - script: npx playwright test
   displayName: 'Run Playwright tests'
+  if: always()
+    with:
+      name: playwright-report
+      path: playwright-report/
+      retention-days: 30
   env:
     CI: 'true'

@@ -26,6 +26,7 @@ test("Check all Hubtel for Hospitals links excluding links with / or wrong forma
         var statusCode = await response!.status();
 
         expect(statusCode).toBe(200);
+        console.log(`${link} -loaded passed ✅`);
       } else {
         console.log(`${link} failed to load`);
       }
