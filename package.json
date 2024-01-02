@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":"playwright test"
+    "test": "playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.38.1",
-    "@types/node": "^20.7.0"
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.7.0",
+    "allure-commandline": "^2.25.0",
+    "allure-playwright": "^2.10.0"
   }
 }
