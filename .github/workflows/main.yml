@@ -5,7 +5,11 @@ on:
     branches:
       - main
       - 'releases/*'
-
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  
 jobs:
   tests_e2e:
     name: Run end-to-end tests
