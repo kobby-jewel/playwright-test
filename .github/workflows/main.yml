@@ -1,18 +1,18 @@
-name: "tests"
+name: "On push"
 on:
   pull_request:
   push:
     branches:
       - main
-      - 'releases/*'
+      - "releases/*"
 permissions:
   contents: write
   pages: write
   id-token: write
-  
+
 jobs:
   tests_e2e:
-    name: Run end-to-end tests
+    name: Run end-to-end tests on push
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,8 @@ jobs:
       - name: Install playwright browsers
         run: npx playwright install --with-deps
       - name: Run tests
-        run: npx playwright test
+        run:
+          npx playwright test
 
           # The following steps are for deploying the report to GitHub Pages
       - name: Setup Pages
@@ -47,6 +48,3 @@ jobs:
         if: always()
         id: deployment
         uses: actions/deploy-pages@v2
-
-        
-    
