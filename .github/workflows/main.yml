@@ -23,7 +23,7 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run tests
         run:
-          npx playwright test
+          npx playwright test --trace on
 
           # The following steps are for deploying the report to GitHub Pages
       - name: Setup Pages
